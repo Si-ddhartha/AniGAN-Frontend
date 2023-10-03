@@ -16,7 +16,7 @@
         }
 
         body{
-            cursor: url('static/assests/cursor.png') 20 20, auto;
+            cursor: url('/assests/cursor.png') 20 20, auto;
         }
 
         .container{
@@ -149,27 +149,27 @@
 <body>
     <div class="container">
         <audio id="clickSound" controls style="display: none">
-            <source src="static/assests//mixkit-mouse-click-close-1113.wav" type="audio/wav">
+            <source src="/assests//mixkit-mouse-click-close-1113.wav" type="audio/wav">
         </audio>
 
         <audio id="music" controls style="display: none">
-            <source src="static/assests/music.mp3" type="audio/mpeg">
+            <source src="/assests/music.mp3" type="audio/mpeg">
         </audio>
 
         <div class="welcome">
-            <img src="static/assests/welcome.png" alt="Welcome">
+            <img src="/assests/welcome.png" alt="Welcome">
         </div>
 
-        <img id="screen" src="static/assests/screen.png" alt="Computer">
+        <img id="screen" src="/assests/screen.png" alt="Computer">
         <img id="loading" alt="Loading gif">
         <img id="gen_image" alt="Computer">
 
         <div class="generate">
-            <img id="gen_button" src="static/assests/gen_button.png" alt="Generate Button">
+            <img id="gen_button" src="/assests/gen_button.png" alt="Generate Button">
         </div>
 
         <div class="player">
-            <img src="static/assests/player1.jpg" alt="Music Player">
+            <img src="/assests/player1.jpg" alt="Music Player">
         </div>
 
         <div class="notepad">
@@ -234,7 +234,7 @@
 
                         // Display loading screen and generated image
                         const randomNumber = Math.floor(Math.random() * 4) + 1;
-                        loadingScreen.src = `static/assests/gif${randomNumber}.gif`;
+                        loadingScreen.src = `/assests/gif${randomNumber}.gif`;
                         generatedImage.src = url;
 
                         loadingScreen.style.display = 'block';
