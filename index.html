@@ -16,7 +16,7 @@
         }
 
         body{
-            cursor: url('/assests/cursor.png') 20 20, auto;
+            cursor: url('static/assests/cursor.png') 20 20, auto;
         }
 
         .container{
@@ -149,31 +149,31 @@
 <body>
     <div class="container">
         <audio id="clickSound" controls style="display: none">
-            <source src="/assests//mixkit-mouse-click-close-1113.wav" type="audio/wav">
+            <source src="static/assests//mixkit-mouse-click-close-1113.wav" type="audio/wav">
         </audio>
 
         <audio id="music" controls style="display: none">
-            <source src="/assests/music.mp3" type="audio/mpeg">
+            <source src="static/assests/music.mp3" type="audio/mpeg">
         </audio>
 
         <div class="welcome">
-            <img src="/assests/welcome.png" alt="Welcome">
+            <img src="static/assests/welcome.png" alt="Welcome">
         </div>
 
-        <img id="screen" src="/assests/screen.png" alt="Computer">
+        <img id="screen" src="static/assests/screen.png" alt="Computer">
         <img id="loading" alt="Loading gif">
         <img id="gen_image" alt="Computer">
 
         <div class="generate">
-            <img id="gen_button" src="/assests/gen_button.png" alt="Generate Button">
+            <img id="gen_button" src="static/assests/gen_button.png" alt="Generate Button">
         </div>
 
         <div class="player">
-            <img src="/assests/player1.jpg" alt="Music Player">
+            <img src="static/assests/player1.jpg" alt="Music Player">
         </div>
 
         <div class="notepad">
-            <img src="/assests/notepad.png" alt="Notepad">
+            <img src="static/assests/notepad.png" alt="Notepad">
             <div class="welcome-msg">
                 <h2>Welcome to my Anime Face Generator!!!</h2>
             </div>
@@ -189,34 +189,11 @@
             const musicPlayer = document.getElementsByClassName('player')[0];
             const bgMusic = document.getElementById('music');
 
-            // Event listener for the "Generate Image" button
-            // generateButton.addEventListener("click", function () {
-            //     // Make an API request to your FastAPI backend to generate an image
-            //     fetch("/generate")
-            //         .then((response) => response.blob())
-            //         .then((blob) => {
-            //             // Convert the Blob to a data URL
-            //             const url = URL.createObjectURL(blob);
-            //             // Display the generated image
-            //             generatedImage.src = url;
-            //         })
-            //         .catch((error) => console.error("Error:", error));
-            // });
-
             let isAudioPlaying = false;
 
             // Generate Image
             gen_button.addEventListener('click', () => {
                 audioElement.play();
-                // if (!isAudioPlaying) {
-                //     audioElement.play();
-
-                //     isAudioPlaying = true;
-
-                //     audioElement.addEventListener('ended', () => {
-                //         isAudioPlaying = false;
-                //     });
-                // }
 
                 // Make an API request to your FastAPI backend to generate an image
                 fetch("/generate")
@@ -225,16 +202,9 @@
                         // Convert the Blob to a data URL
                         const url = URL.createObjectURL(blob);
 
-                        // Display the generated image
-                        // generatedImage.src = url;
-                        // // generatedImage.style.display = 'none';
-                        // setTimeout(() => {
-                        //     generatedImage.style.display = 'block';
-                        // }, 1500);
-
                         // Display loading screen and generated image
                         const randomNumber = Math.floor(Math.random() * 4) + 1;
-                        loadingScreen.src = `/assests/gif${randomNumber}.gif`;
+                        loadingScreen.src = `static/assests/gif${randomNumber}.gif`;
                         generatedImage.src = url;
 
                         loadingScreen.style.display = 'block';
@@ -245,20 +215,6 @@
                         }, 1500);
                             })
                     .catch((error) => console.error("Error:", error));
-
-                // console.log(url);
-
-                // // Display loading screen and generated image
-                // const randomNumber = Math.floor(Math.random() * 4) + 1;
-                // loadingScreen.src = `static/assests/gif${randomNumber}.gif`;
-                // generatedImage.src = url;
-
-                // loadingScreen.style.display = 'block';
-                // generatedImage.style.display = 'none';
-                // setTimeout(() => {
-                //     loadingScreen.style.display = 'none';
-                //     generatedImage.style.display = 'block';
-                // }, 1500);
             });
 
             // BG music
