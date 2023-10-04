@@ -44,10 +44,3 @@ def return_generated_image():
 def get_index():
     index_html_path = os.path.join(current_directory, "index.html")
     return FileResponse(index_html_path)
-
-
-# if __name__ == "__main__":
-#     import uvicorn
-
-#     # Run the FastAPI app using Uvicorn
-#     uvicorn.run(app, host="0.0.0.0", port=8000)
